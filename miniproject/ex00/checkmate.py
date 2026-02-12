@@ -5,7 +5,7 @@ def checkmate(board):
     lines = board.strip().split('\n') #.strip()-->ดักกรณีมีช่องว่าง .split('/n') --> ตัดการเว้นบรรทัดเเล้วเอาไปสรา้ง list
     #.strip()--> ผลที่ได้: "R...\n.K..\n..P.\n...."
     #.split('/n') --> ผลที่ได้: ["R...", ".K..", "..P.", "...."]
-
+    num_rows = len(lines)
     grid = [list(line) for line in lines] #รูปสร้าง ... เเต่ละบรรทัดโดย data type คือ list
     # ผลลัพธ์ grid :
     # [
@@ -14,9 +14,13 @@ def checkmate(board):
     #   ['.', '.', 'P', '.'],
     #   ['.', 'Q', '.', '.']
     # ]
+    for i, row in enumerate(grid):
+        if len(row) != num_rows:
+            print(' not square')
+            return
+    
     size = len(grid)
     #ผลที่ได้: --> 4
-
 
     #หา ตน king(K)
     k_row , k_col = -1,-1 #ต้องระบุ -1 --> บอกว่ามันไม่มีอยู่ในกระดาน
@@ -85,7 +89,7 @@ def checkmate(board):
                 break
             curr_col = curr_col + d_col
             curr_row = curr_row + d_row
-    
+            
     if is_check == True:
         print("Success")
     else:
