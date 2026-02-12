@@ -14,8 +14,8 @@ def checkmate(board):
     #   ['.', '.', 'P', '.'],
     #   ['.', 'Q', '.', '.']
     # ]
-    for i, row in enumerate(grid):
-        if len(row) != num_rows:
+    for  row in grid:
+        if len(row) != num_rows: #คิดว่าถ้าความกว้างเเถวไม่เท่าความสูงก็ไม่เหลี่ยม
             print(' not square')
             return
     
