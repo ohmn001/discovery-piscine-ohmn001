@@ -20,6 +20,7 @@ def checkmate(board):
 
     #หา ตน king(K)
     k_row , k_col = -1,-1 #ต้องระบุ -1 --> บอกว่ามันไม่มีอยู่ในกระดาน
+    k_count = 0
     for i_row in range(size): #ลูปหา K เเต่ละ row --> เริ่มนับ 0,1,2,3
         for i_column in range(size): #ลูปหา K เเต่ละ row --> เริ่มนับ 0,1,2,3
             if grid[i_row][i_column] == 'K': 
@@ -27,10 +28,11 @@ def checkmate(board):
                 #ผลลัพธ์: k_row , k_col = 1,1
                 break
 
-    #ดักกรณีไม่มี king
-    if k_row == -1 : 
-        print('you forget input king!!!')
+    #ดักกรณีไม่มี king หรือ มี king 2 ตัว
+    if k_row != 1 : 
+        print('you dont have king or have 2 king !!!')
     #เขียนดักกรณี K สองตัวด้วย
+
 
     #อธิบายการทำงานฟังชั่นนี้หน่อย
     def enemy_position(row , column , enemy_type):
