@@ -28,13 +28,18 @@ def checkmate(board):
     for i_row in range(size): #ลูปหา K เเต่ละ row --> เริ่มนับ 0,1,2,3
         for i_column in range(size): #ลูปหา K เเต่ละ row --> เริ่มนับ 0,1,2,3
             if grid[i_row][i_column] == 'K': 
+                k_count = k_count+1
                 k_row , k_col = i_row , i_column
                 #ผลลัพธ์: k_row , k_col = 1,1
                 break
 
     #ดักกรณีไม่มี king หรือ มี king 2 ตัว
-    if k_row != 1 : 
-        print('you dont have king or have 2 king !!!')
+    if k_row == 0 : 
+        print('you dont have king !!!')
+        return
+    if k_row > 1 : 
+        print('you have more 1 king !!!')
+        return
     #เขียนดักกรณี K สองตัวด้วย
 
 
